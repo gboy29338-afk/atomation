@@ -1,0 +1,260 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colour Trading</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* TITLE */
+
+header{
+padding:20px;
+font-size:36px;
+font-weight:900;
+color:white;
+}
+
+/* HERO */
+
+.hero{
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#ccc;
+}
+
+/* BONUS */
+
+.bonus{
+margin-top:20px;
+display:inline-block;
+padding:12px 25px;
+background:gold;
+color:black;
+border-radius:8px;
+font-weight:bold;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:15px 40px;
+border-radius:30px;
+background:white;
+color:black;
+font-size:18px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:gold;
+}
+
+/* TELEGRAM */
+
+.telegram{
+display:inline-block;
+margin-top:15px;
+padding:14px 35px;
+border-radius:30px;
+background:#0088cc;
+color:white;
+font-size:18px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* FEATURES */
+
+.features{
+margin-top:70px;
+padding:40px 20px;
+background:#111;
+}
+
+.features h2{
+margin-bottom:25px;
+}
+
+.feature{
+background:#000;
+border:1px solid #333;
+margin:10px auto;
+padding:15px;
+border-radius:8px;
+width:250px;
+}
+
+/* WIN POPUP */
+
+.popup{
+position:fixed;
+bottom:25px;
+left:20px;
+padding:14px 20px;
+border-radius:10px;
+font-size:15px;
+color:white;
+font-weight:bold;
+background:linear-gradient(45deg,#ff3b3b,#ff9800,#00e676,#2196f3,#e040fb);
+background-size:400% 400%;
+animation:winGradient 6s ease infinite, pulseWin 1.5s infinite;
+box-shadow:0 0 15px rgba(255,255,255,0.3);
+}
+
+@keyframes winGradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+@keyframes pulseWin{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+/* COIN ANIMATION */
+
+.coin{
+position:fixed;
+top:-50px;
+font-size:22px;
+animation:coinFall 4s linear forwards;
+}
+
+@keyframes coinFall{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(700px) rotate(720deg);
+opacity:0;
+}
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+padding:20px;
+color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+COLOUR TRADING
+</header>
+
+<div class="hero">
+
+<h1>Play & Win Daily</h1>
+
+<p>Predict colour and earn rewards</p>
+
+<div class="bonus">
+₹100 Register Bonus
+</div>
+
+<br>
+
+<a href="https://shorturl.at/8ClIt" class="btn">Register</a>
+
+<br>
+
+<a href="https://t.me/tradetehejdjn" class="telegram">
+Join Telegram
+</a>
+
+</div>
+
+<div class="features">
+
+<h2>Platform Features</h2>
+
+<div class="feature">Fast Colour Prediction</div>
+<div class="feature">Instant Withdraw</div>
+<div class="feature">₹100 Bonus</div>
+<div class="feature">Secure Platform</div>
+
+</div>
+
+<div class="popup" id="winPopup">
+🎉 Rahul won ₹500
+</div>
+
+<footer>
+© 2026 Colour Trading
+</footer>
+
+<script>
+
+let players=["Aman","Rahul","Vikas","Sahil","Rohit","Arjun"];
+let amounts=["₹500","₹1200","₹8500","₹3000","₹750"];
+
+function createCoin(){
+
+let coin=document.createElement("div");
+coin.className="coin";
+coin.innerHTML="🪙";
+coin.style.left=Math.random()*window.innerWidth+"px";
+
+document.body.appendChild(coin);
+
+setTimeout(()=>{
+coin.remove();
+},4000);
+
+}
+
+setInterval(()=>{
+
+let name=players[Math.floor(Math.random()*players.length)];
+let amount=amounts[Math.floor(Math.random()*amounts.length)];
+
+document.getElementById("winPopup").innerHTML=
+"🎉 "+name+" just won "+amount+" 💰";
+
+for(let i=0;i<6;i++){
+createCoin();
+}
+
+},4000);
+
+</script>
+
+</body>
+</html>
+```
