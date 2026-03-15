@@ -1,0 +1,2 @@
+# atomation
+HELLO TRADERS, WELCOME 
